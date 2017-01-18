@@ -1,0 +1,303 @@
+# ============================================================
+# Scene Two for Ray Tracing
+# CPSC 453 - Assignment #4 - Winter 2016
+#
+# This file contains the geometry of the scene only.
+# No materials are specified.
+#
+# Instructions for reading this file:
+#   - lines beginning with ‘#’ are comments
+#   - all objects are expressed in the camera reference frame
+#   - objects are described with the following parameters:
+#      - point light source has a single position
+#      - sphere has a centre and radius
+#      - plane has a unit normal and a point on the plane
+#      - triangle has positions of its three corners, in
+#        counter-clockwise order
+#   - syntax of the object specifications are as follows:
+#
+#      light    { x  y  z  }
+#      sphere   { x  y  z   r }
+#      plane    { xn yn zn  xq yq zq }
+#      triangle { x1 y1 z1  x2 y2 z2  x3 y3 z3 }
+#
+# Feel free to modify or extend this scene file to your desire
+# as you complete your ray tracing system.
+# ============================================================
+
+light {
+  position: 4 6 -1
+  intensity: 3
+}
+
+material
+{
+  phong: 100
+  reflectance: 0
+  refraction: 1.5
+  spec: 1 1 1
+}
+
+# Floor
+plane {
+  0 1 0
+  0 -1 0
+  1 1 1 0
+}
+
+# Back wall
+plane {
+  0 0 1
+  0 0 -12
+  0 0 1 0
+}
+
+material
+{
+  phong: 10
+  reflectance: 0.3
+  spec: 1 1 0
+}
+# Large yellow sphere
+sphere {
+  1 -0.5 -3.5
+  0.5
+  1 1 0 0
+}
+
+material
+{
+  phong: 1000
+  reflectance: 0.5
+  spec: 1 1 1
+}
+# Reflective grey sphere
+sphere {
+  0 1 -5
+  0.4
+  0.7 0.7 0.7 0
+}
+
+material
+{
+  phong: 10
+  reflectance: 0.3
+  spec: 1 0 1
+}
+
+# Metallic purple sphere
+sphere {
+  -0.8 -0.75 -4
+  0.25
+  1 0 1 0
+}
+
+material
+{
+  phong: 100
+  reflectance: 0
+  spec: 1 0 0
+}
+
+# Green cone
+triangle {
+  0 -1 -5.8
+  0 0.6 -5
+  0.4 -1 -5.693
+  0 1 0 0
+}
+triangle {
+  0.4 -1 -5.693
+  0 0.6 -5
+  0.6928 -1 -5.4
+  0 1 0 0
+}
+triangle {
+  0.6928 -1 -5.4
+  0 0.6 -5
+  0.8 -1 -5
+  0 1 0 0
+}
+triangle {
+  0.8 -1 -5
+  0 0.6 -5
+  0.6928 -1 -4.6
+  0 1 0 0
+}
+triangle {
+  0.6928 -1 -4.6
+  0 0.6 -5
+  0.4 -1 -4.307
+  0 1 0 0
+}
+triangle {
+  0.4 -1 -4.307
+  0 0.6 -5
+  0 -1 -4.2
+  0 1 0 0
+}
+triangle {
+  0 -1 -4.2
+  0 0.6 -5
+  -0.4 -1 -4.307
+  0 1 0 0
+}
+triangle {
+  -0.4 -1 -4.307
+  0 0.6 -5
+  -0.6928 -1 -4.6
+  0 1 0 0
+}
+triangle {
+  -0.6928 -1 -4.6
+  0 0.6 -5
+  -0.8 -1 -5
+  0 1 0 0
+}
+triangle {
+  -0.8 -1 -5
+  0 0.6 -5
+  -0.6928 -1 -5.4
+  0 1 0 0
+}
+triangle {
+  -0.6928 -1 -5.4
+  0 0.6 -5
+  -0.4 -1 -5.693
+  0 1 0 0
+}
+triangle {
+  -0.4 -1 -5.693
+  0 0.6 -5
+  0 -1 -5.8
+  0 1 0 0
+}
+
+material
+{
+  phong: 100
+  reflectance: 0.3
+  spec: 1 0 0
+}
+
+# Shiny red icosahedron
+triangle {
+  -2 -1 -7
+  -1.276 -0.4472 -6.474
+  -2.276 -0.4472 -6.149
+  1 0 0 0
+}
+triangle {
+  -1.276 -0.4472 -6.474
+  -2 -1 -7
+  -1.276 -0.4472 -7.526
+  1 0 0 0
+}
+triangle {
+  -2 -1 -7
+  -2.276 -0.4472 -6.149
+  -2.894 -0.4472 -7
+  1 0 0 0
+}
+triangle {
+  -2 -1 -7
+  -2.894 -0.4472 -7
+  -2.276 -0.4472 -7.851
+  1 0 0 0
+}
+triangle {
+  -2 -1 -7
+  -2.276 -0.4472 -7.851
+  -1.276 -0.4472 -7.526
+  1 0 0 0
+}
+triangle {
+  -1.276 -0.4472 -6.474
+  -1.276 -0.4472 -7.526
+  -1.106 0.4472 -7
+  1 0 0 0
+}
+triangle {
+  -2.276 -0.4472 -6.149
+  -1.276 -0.4472 -6.474
+  -1.724 0.4472 -6.149
+  1 0 0 0
+}
+triangle {
+  -2.894 -0.4472 -7
+  -2.276 -0.4472 -6.149
+  -2.724 0.4472 -6.474
+  1 0 0 0
+}
+triangle {
+  -2.276 -0.4472 -7.851
+  -2.894 -0.4472 -7
+  -2.724 0.4472 -7.526
+  1 0 0 0
+}
+triangle {
+  -1.276 -0.4472 -7.526
+  -2.276 -0.4472 -7.851
+  -1.724 0.4472 -7.851
+  1 0 0 0
+}
+triangle {
+  -1.276 -0.4472 -6.474
+  -1.106 0.4472 -7
+  -1.724 0.4472 -6.149
+  1 0 0 0
+}
+triangle {
+  -2.276 -0.4472 -6.149
+  -1.724 0.4472 -6.149
+  -2.724 0.4472 -6.474
+  1 0 0 0
+}
+triangle {
+  -2.894 -0.4472 -7
+  -2.724 0.4472 -6.474
+  -2.724 0.4472 -7.526
+  1 0 0 0
+}
+triangle {
+  -2.276 -0.4472 -7.851
+  -2.724 0.4472 -7.526
+  -1.724 0.4472 -7.851
+  1 0 0 0
+}
+triangle {
+  -1.276 -0.4472 -7.526
+  -1.724 0.4472 -7.851
+  -1.106 0.4472 -7
+  1 0 0 0
+}
+triangle {
+  -1.724 0.4472 -6.149
+  -1.106 0.4472 -7
+  -2 1 -7
+  1 0 0 0
+}
+triangle {
+  -2.724 0.4472 -6.474
+  -1.724 0.4472 -6.149
+  -2 1 -7
+  1 0 0 0
+}
+triangle {
+  -2.724 0.4472 -7.526
+  -2.724 0.4472 -6.474
+  -2 1 -7
+  1 0 0 0
+}
+triangle {
+  -1.724 0.4472 -7.851
+  -2.724 0.4472 -7.526
+  -2 1 -7
+  1 0 0 0
+}
+triangle {
+  -1.106 0.4472 -7
+  -1.724 0.4472 -7.851
+  -2 1 -7
+  1 0 0 0
+}

@@ -1,0 +1,172 @@
+# ============================================================
+# Scene One for Ray Tracing
+# CPSC 453 - Assignment #4 - Winter 2016
+#
+# This file contains the geometry of the scene only.
+# No materials are specified.
+#
+# Instructions for reading this file:
+#   - lines beginning with ‘#’ are comments
+#   - all objects are expressed in the camera reference frame
+#   - objects are described with the following parameters:
+#      - point light source has a single position
+#      - sphere has a centre and radius
+#      - plane has a unit normal and a point on the plane
+#      - triangle has positions of its three corners, in
+#        counter-clockwise order
+#   - syntax of the object specifications are as follows:
+#
+#      light    { x  y  z  }
+#      sphere   { x  y  z   r }
+#      plane    { xn yn zn  xq yq zq }
+#      triangle { x1 y1 z1  x2 y2 z2  x3 y3 z3 }
+#
+# Feel free to modify or extend this scene file to your desire
+# as you complete your ray tracing system.
+# ============================================================
+
+light {
+ position: 0 2.5 -7.75
+ intensity: 1
+}
+
+material 
+{
+  phong: 1
+  reflectance: 0.1
+  refraction: 1.5
+  spec: 1 1 1
+}
+
+# Reflective grey sphere
+sphere {
+  0.9 -1.925 -6.69
+  0.825
+ 0.5 0.5 0.5 1
+}
+
+material 
+{
+  reflectance: 0.5
+}
+
+# Blue pyramid
+triangle {
+  -0.4 -2.75 -9.55
+  -0.93 0.55 -8.51
+  0.11 -2.75 -7.98
+  0 0.3 1 0
+}
+triangle {
+  0.11 -2.75 -7.98
+  -0.93 0.55 -8.51
+  -1.46 -2.75 -7.47
+  0 0.3 1 0
+}
+triangle {
+  -1.46 -2.75 -7.47
+  -0.93 0.55 -8.51
+  -1.97 -2.75 -9.04
+  0 0.3 1 0
+}
+triangle {
+  -1.97 -2.75 -9.04
+  -0.93 0.55 -8.51
+  -0.4 -2.75 -9.55
+  0 0.3 1 0
+}
+
+
+material 
+{
+  reflectance: 0
+}
+
+# Ceiling
+triangle {
+  2.75 2.75 -10.5
+  2.75 2.75 -5
+  -2.75 2.75 -5
+  1 1 1 0
+}
+triangle {
+  -2.75 2.75 -10.5
+  2.75 2.75 -10.5
+  -2.75 2.75 -5
+  1 1 1 0
+}
+
+# Green wall on right 
+triangle {
+  2.75 2.75 -5
+  2.75 2.75 -10.5
+  2.75 -2.75 -10.5
+  0 1 0 0
+}
+triangle {
+  2.75 -2.75 -5
+  2.75 2.75 -5
+  2.75 -2.75 -10.5
+  0 1 0 0
+}
+
+material 
+{
+  reflectance: 1
+  phong:1000
+  specular: 1 1 1
+}
+
+# Red wall on left
+triangle {
+  -2.75 -2.75 -5
+  -2.75 -2.75 -10.5
+  -2.75 2.75 -10.5
+  1 0 0 0
+}
+
+triangle {
+  -2.75 2.75 -5
+  -2.75 -2.75 -5
+  -2.75 2.75 -10.5
+  1 0 0 0
+}
+
+material 
+{
+  reflectance: 0
+}
+
+# Floor
+triangle {
+  2.75 -2.75 -5
+  2.75 -2.75 -10.5
+  -2.75 -2.75 -10.5
+  1 1 1 0
+}
+triangle {
+  -2.75 -2.75 -5
+  2.75 -2.75 -5
+  -2.75 -2.75 -10.5
+  1 1 1 0
+}
+
+material 
+{
+  phong: 256
+  spec: 1 1 1
+}
+
+# Back wall
+plane {
+  0 0 1
+  0 0 -10.5
+  1 0 1 0
+}
+
+plane {
+  0 0 1
+  0 0 300
+  0 0 0 0
+}
+

@@ -1,0 +1,252 @@
+# ============================================================
+# Scene Two for Ray Tracing
+# CPSC 453 - Assignment #4 - Winter 2016
+#
+# This file contains the geometry of the scene only.
+# No materials are specified.
+#
+# Instructions for reading this file:
+#   - lines beginning with ‘#’ are comments
+#   - all objects are expressed in the camera reference frame
+#   - objects are described with the following parameters:
+#      - point light source has a single position
+#      - sphere has a centre and radius
+#      - plane has a unit normal and a point on the plane
+#      - triangle has positions of its three corners, in
+#        counter-clockwise order
+#   - syntax of the object specifications are as follows:
+#
+#      light    { x  y  z  }
+#      sphere   { x  y  z   r }
+#      plane    { xn yn zn  xq yq zq }
+#      triangle { x1 y1 z1  x2 y2 z2  x3 y3 z3 }
+#
+# Feel free to modify or extend this scene file to your desire
+# as you complete your ray tracing system.
+# ============================================================
+
+light {
+  position: 0 6 0
+  intensity: 3
+}
+
+light {
+  position: 0 6 -39
+  intensity: 3
+}
+
+light {
+  position: 0 6 -20
+  intensity: 3
+}
+
+material {
+  phong: 1
+  reflectance: 0
+  refraction: 1
+  spec: 1 1 1
+}
+
+# Floor
+plane {
+  0 1 0
+  0 -1 0
+  0 0.2 1 0
+}
+
+sphere {
+  0 0 0
+  40
+  0 0.5 1 0
+}
+
+material {
+  phong: 1
+  reflectance: 0
+  refraction: 1.1
+  spec: 1 1 1
+}
+
+#spike 1
+triangle {
+  -1  -1 0
+  -1 -1 -1
+  -2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  -1 -1 -1
+  0 -1 -1
+  -2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  -1 -1 0
+  0 -1 0
+  -2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  0 -1 -1
+  0 -1 0
+  -2 3 -2
+  1 1 1 0.9
+}
+
+#spike 2
+
+triangle {
+  0  -1 -1
+  1 -1 -1
+  2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  1  -1 -1
+  1 -1 0
+  2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  0 -1 -1
+  2 3 -2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  1 -1 0
+  2 3 -2
+  1 1 1 0.9
+}
+
+#spike 3
+
+triangle {
+  0  -1 1
+  1 -1 1
+  2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  1  -1 1
+  1 -1 0
+  2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  0 -1 1
+  2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  1 -1 0
+  2 3 2
+  1 1 1 0.9
+}
+
+#spike 4
+triangle {
+  0  -1 1
+  -1 -1 1
+ -2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  -1  -1 1
+ -1 -1 0
+  -2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  0 -1 1
+  -2 3 2
+  1 1 1 0.9
+}
+
+triangle {
+  0  -1 0
+  -1 -1 0
+  -2 3 2
+  1 1 1 0.9
+}
+
+material {
+  reflectance: 0.1
+}
+#crystal sphere
+
+sphere {
+  0 2 0
+  1.5
+  1 0 1 0.5
+}
+
+material {
+  phong: 1
+  reflectance: 1
+  refraction: 1.1
+  spec: 1 1 1
+}
+
+#outer circle
+triangle {
+  -4 -1 -4
+  4 -1 -4
+  0 5 -6
+  1 1 1 0
+}
+
+triangle {
+  -4 -1 -4
+  -4 -1 5
+  -7 5 0
+  1 1 1 0
+}
+
+triangle {
+  4 -1 -4
+  4 -1 5
+  7 5 0
+  1 1 1 0
+}
+
+#middle circle
+triangle {
+  0 -1 -4
+  -4 -1 0
+  -3 7 -3
+  1 1 1 0
+}
+
+triangle {
+  0 -1 -4
+  4 -1 0
+  3 7 -3
+  1 1 1 0
+}
+
+material {
+  phong: 100
+  reflectance: 0.5
+  refraction: 1.1
+  spec: 1 0 1
+}
+
+
+
+
